@@ -1,7 +1,13 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "tic-tac-toe",
+  "name": "tic-tac-toe",
   "icons": [
+    {
+      "src": "favicon.svg",
+      "purpose": "maskable any",
+      "type":"image/svg+xml",
+      "sizes": "192x192 256x256 512x512"
+    },
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
@@ -19,7 +25,7 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
+  "display": "browser",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
