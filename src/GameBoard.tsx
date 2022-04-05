@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GameButton from './GameButton';
+import { useGameContext } from './GameContext';
 import {isSpotOpen} from './GameUtil'
 
 interface Props {
@@ -8,18 +9,16 @@ interface Props {
 
 const GameBoard: React.FunctionComponent<Props> = (props) => {
 
-
-  let grid : string [][] = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']];
-
-  const [gamestate, setGameState] = useState(grid);
+  const {board} = useGameContext();
+  if (!board) return null;
 
   const handleClick = (row: number, col: number) => {
 
   };
 
   const renderGameButton = (row: number, col: number) => {
-    let tx : string = gamestate[row][col];
-    let open: boolean = isSpotOpen(gamestate, row, col);
+    let tx : string = board[row][col];
+    let open: boolean = isSpotOpen(board, row, col);
       return (
           <GameButton
             text={tx} isOpen={open} 

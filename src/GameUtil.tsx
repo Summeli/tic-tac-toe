@@ -1,8 +1,5 @@
 import GameBoard from "./GameBoard";
-
-const P1 = "X";
-const P2 = "O";
-
+import { P1,P2 } from "./GameContext";
   export function isSpotOpen(board: string[][],row: number, col: number ): boolean{
     return board[row][col] != P1 && board[row][col] != P2;
   }

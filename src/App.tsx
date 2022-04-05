@@ -4,6 +4,7 @@ import GameBoard from './GameBoard';
 import CloudamiteTop from './CloudamiteTop';
 import CloudamiteFooter from './CloudamiteFooter';
 import Particles from "react-tsparticles";
+import { GameContextProvider } from './GameContext';
 
 const App = () => {
    const [animate, setAnimate] = useState<boolean>(false);
@@ -120,9 +121,11 @@ const App = () => {
   return (
       <div className="kirosanabingo">
          <CloudamiteTop />
+         <GameContextProvider>
          <div className="gamecontainer">
             <GameBoard setParty={setParty}/>
          </div>
+        </GameContextProvider>
          <CloudamiteFooter />
          {animate ? ( 
          <Particles options={options} /> ) : (<br></br> ) }
