@@ -29,6 +29,9 @@ export function checkForWinner(board: string[][]) : number {
       else if(board[0][0] == board[1][1] && board[1][1] == board[2][2])/*diagonal*/
       {
           return 1;
+      } else if(board[0][2] == board[1][1] && board[1][1] == board[2][0])/*diagonal*/
+      {
+          return 1;
       }
     
       return -1;
