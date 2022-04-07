@@ -3,7 +3,7 @@ import './App.css';
 import GameBoard from './GameBoard';
 import CloudamiteTop from './CloudamiteTop';
 import CloudamiteFooter from './CloudamiteFooter';
-import Particles from "react-tsparticles";
+import VictoryParty from './VictoryParty'
 import { GameContextProvider } from './GameContext';
 
 const App = () => {
@@ -120,15 +120,14 @@ const App = () => {
 
   return (
       <div className="kirosanabingo">
-         <CloudamiteTop />
          <GameContextProvider>
+         <CloudamiteTop />
          <div className="gamecontainer">
-            <GameBoard setParty={setParty}/>
+            <GameBoard />
          </div>
-        </GameContextProvider>
          <CloudamiteFooter />
-         {animate ? ( 
-         <Particles options={options} /> ) : (<br></br> ) }
+        <VictoryParty />
+        </GameContextProvider>
       </div>  );
 }
 

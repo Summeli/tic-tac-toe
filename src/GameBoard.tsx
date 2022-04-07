@@ -3,23 +3,15 @@ import GameButton from './GameButton';
 import { P1, P2, useGameContext } from './GameContext';
 import {isSpotOpen} from './GameUtil'
 
-interface Props {
-  setParty: (party: boolean) => void;
-}
 
-const GameBoard: React.FunctionComponent<Props> = (props) => {
+const GameBoard: React.FunctionComponent = () => {
 
   const {board, nextMove, winner, gameOver, resetGame} = useGameContext();
   
   if (!board || !nextMove || !resetGame) return null;
 
-  if(winner && winner === P2){
-    console.log("time to party");
-    props.setParty(true);
-  }
   const handleClick = (row: number, col: number) => {
     if(gameOver == true){
-      props.setParty(false);
       resetGame();
     }
     nextMove(P1,row,col);
