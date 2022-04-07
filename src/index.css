@@ -103,7 +103,7 @@ code {
   align-items: center;
   margin-top: 20px;
 }
-.newBingoSheetButton{
+.newGameButton{
   width: 120px;
   height: 70px;
   background-color: transparent;
@@ -246,6 +246,7 @@ code {
     height: 70px;
   }
 }
+
 
 @media only screen and (max-height: 400px) {
     .cloudamite-logo-footer{

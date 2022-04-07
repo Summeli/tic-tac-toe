@@ -11,10 +11,9 @@ const GameBoard: React.FunctionComponent = () => {
   if (!board || !nextMove || !resetGame) return null;
 
   const handleClick = (row: number, col: number) => {
-    if(gameOver == true){
-      resetGame();
+    if(gameOver != true){
+      nextMove(P1,row,col);
     }
-    nextMove(P1,row,col);
   };
 
   const renderGameButton = (row: number, col: number) => {
@@ -46,6 +45,10 @@ const GameBoard: React.FunctionComponent = () => {
         {renderGameButton(2,0)}
         {renderGameButton(2,1)}
         {renderGameButton(2,2)}
+      </div>
+
+      <div className="extrabuttoncontainer">
+        <button onClick = {resetGame} className= "newGameButton">new Game</button>
       </div>
 
   </div>
