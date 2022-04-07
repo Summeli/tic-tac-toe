@@ -5,7 +5,7 @@ const VictoryParty: React.FunctionComponent = () => {
     const {winner, gameOver} = useGameContext();
     
     let animate: boolean = false;
-    if(winner && winner === P2 && gameOver == true){
+    if(winner && winner === P2 && gameOver === true){
         animate = true;
     }
 
