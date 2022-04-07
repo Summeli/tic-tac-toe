@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GameButton from './GameButton';
-import { useGameContext } from './GameContext';
+import { P1, P2, useGameContext } from './GameContext';
 import {isSpotOpen} from './GameUtil'
 
 interface Props {
@@ -9,11 +9,20 @@ interface Props {
 
 const GameBoard: React.FunctionComponent<Props> = (props) => {
 
-  const {board} = useGameContext();
-  if (!board) return null;
+  const {board, nextMove, winner, gameOver, resetGame} = useGameContext();
+  
+  if (!board || !nextMove || !resetGame) return null;
 
+  if(winner && winner === P2){
+    console.log("time to party");
+    props.setParty(true);
+  }
   const handleClick = (row: number, col: number) => {
-
+    if(gameOver == true){
+      props.setParty(false);
+      resetGame();
+    }
+    nextMove(P1,row,col);
   };
 
   const renderGameButton = (row: number, col: number) => {

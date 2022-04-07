@@ -1,16 +1,22 @@
 import React, { useContext, useState } from "react";
+import { checkForWinner, getNextTurn } from "./GameUtil";
 
 export type GameState = {
     board: string[][];
     turn: string; //P1 or P2
     round: number;
+    winner: string;
+    gameOver: boolean;
   };
 
   type GameContext = {
     board: string[][];
     turn: string; //P1 or P2
     round: number;
+    winner: string;
+    gameOver: boolean;
     nextMove: (player: string, col: number, row: number) => void;
+    resetGame: () => void;
   };
   
 
@@ -36,18 +42,43 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     const [turn, setTurn] = useState(P1);
     const [board, setBoard] = useState(grid);
     const [round, setRound] = useState(0);
+    const [winner, setWinner] = useState("");
+    const [gameOver, setGameOver] = useState(false);
 
-    const nextMove = (pplayer: string, col: number, row: number) => {
-        //set board
+    const nextMove = (pplayer: string, row: number, col: number) => {
+        board[row][col] = turn;
+        setBoard(board);        
+        if(checkForWinner(board) == 1){
+          setWinner(turn);
+          setGameOver(true);
+        }
+        if( round < 9){
+          console.log(round);
+          setRound(round +1);
+          setTurn(getNextTurn(turn));
+        } else {
+          setWinner(P2);
+          setGameOver(true);
+        }
     };
-
+    
+    const resetGame = () => {
+      setBoard(grid);
+      setTurn(P1);
+      setRound(0);
+      setWinner("");
+      setGameOver(false);
+    };
   return (
     <GameContext.Provider
       value={{
         board,
         turn,
         round,
-        nextMove
+        winner,
+        gameOver,
+        nextMove,
+        resetGame
       }}
     >
       {children}

@@ -34,3 +34,12 @@ export function checkForWinner(board: string[][]) : number {
       return -1;
       
   }
+
+export function getNextTurn(turn: string): string{
+    if(turn === P1){
+        return P2;
+    }
+    else{
+        return P1;
+    }
+}
