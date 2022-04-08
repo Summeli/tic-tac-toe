@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { getNextMove } from "./ai";
-import { checkForWinner, getNextTurn, getPossibleMoves } from "./GameUtil";
+import { checkForWinner, gameMove, getNextTurn, getPossibleMoves } from "./GameUtil";
 
 export type GameState = {
     board: string[][];
@@ -9,13 +9,7 @@ export type GameState = {
     winner: string;
     gameOver: boolean;
   };
-
-export type gameMove = {
-    row: number,
-    col: number
-};
-
-
+  
 type GameContext = {
     board: string[][];
     turn: string; //P1 or P2
@@ -59,10 +53,11 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
           setWinner(turn);
           setGameOver(true);
         }
-        if( round < 9){
+        if( round < 8){
           setRound(round +1);
           setTurn(getNextTurn(turn));
         } else {
+          //P2 wins with tie
           setWinner(P2);
           setGameOver(true);
         }

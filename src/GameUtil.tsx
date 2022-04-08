@@ -1,7 +1,12 @@
 import { moveSyntheticComments } from "typescript";
 import GameBoard from "./GameBoard";
-import { gameMove, P1,P2 } from "./GameContext";
+import { P1,P2 } from "./GameContext";
 
+
+export type gameMove = {
+    row: number,
+    col: number
+};
 
 export function isSpotOpen(board: string[][],row: number, col: number ): boolean{
     return board[row][col] != P1 && board[row][col] != P2;
