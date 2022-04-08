@@ -144,6 +144,21 @@ code {
   height: 70px;
 }
 
+.winner{
+  z-index: 1;
+  border-color: rgb(247, 214, 72);
+  background-color:transparent;
+  color: rgb(255, 255, 255);
+  outline: none;
+  font: Poppins;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 90px;
+  height: 70px;}
+
+
 .gameButtonP2{
   z-index: 1;
   border-color: rgb(247, 214, 72);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import EndGameView from './EndGameView';
 import GameButton from './GameButton';
 import { P1, P2, useGameContext } from './GameContext';
 import {isSpotOpen} from './GameUtil'
@@ -50,6 +51,9 @@ const GameBoard: React.FunctionComponent = () => {
       <div className="extrabuttoncontainer">
         <button onClick = {resetGame} className= "newGameButton">new Game</button>
       </div>
+
+      <EndGameView />
+
 
   </div>
 );
