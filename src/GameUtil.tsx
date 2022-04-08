@@ -1,10 +1,11 @@
+import { moveSyntheticComments } from "typescript";
 import GameBoard from "./GameBoard";
-import { P1,P2 } from "./GameContext";
-  export function isSpotOpen(board: string[][],row: number, col: number ): boolean{
+import { gameMove, P1,P2 } from "./GameContext";
+
+
+export function isSpotOpen(board: string[][],row: number, col: number ): boolean{
     return board[row][col] != P1 && board[row][col] != P2;
   }
-
-
 
 export function checkForWinner(board: string[][]) : number {
       /*checkign vertical line*/
@@ -46,3 +47,15 @@ export function getNextTurn(turn: string): string{
         return P1;
     }
 }
+
+ export function getPossibleMoves(board: string[][]): gameMove[] {
+    let moves = new Array<gameMove>();
+    for( let col=0; col<3; col++){
+        for( let row=0; row<3; row++){
+            if(board[row][col] !== P1 && board[row][col] !== P2){
+                moves.push({row,col} as gameMove);
+            }
+        }
+    }
+    return moves;
+ }   
