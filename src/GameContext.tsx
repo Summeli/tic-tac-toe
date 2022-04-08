@@ -52,8 +52,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
         if(checkForWinner(board) == 1){
           setWinner(turn);
           setGameOver(true);
-        }
-        if( round < 8){
+        }else if( round < 8){
           setRound(round +1);
           setTurn(getNextTurn(turn));
         } else {
