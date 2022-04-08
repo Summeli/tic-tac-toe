@@ -53,7 +53,6 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     const [gameOver, setGameOver] = useState(false);
 
     const nextMove = (pplayer: string, row: number, col: number) => {
-      console.log("next Move")
         board[row][col] = turn;
         setBoard(board);        
         if(checkForWinner(board) == 1){
@@ -70,7 +69,6 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     };
 
     React.useEffect(() => {
-      console.log("turn", turn);
       if(turn === P1 && !gameOver){
         let move: gameMove = getNextMove(board,getPossibleMoves(board), round);
         nextMove(P1,move.row,move.col);
