@@ -9,9 +9,11 @@ if (!rootElement) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
+  <App />
+  /* Strictmode leads running useeffect twice: https://github.com/react-hook-form/react-hook-form/issues/8076
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>*/
 );
 
 // If you want to start measuring performance in your app, pass a function
