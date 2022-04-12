@@ -8,7 +8,7 @@ import { GameContextProvider } from './GameContext';
 const App = () => {
 
   return (
-      <div className="kirosanabingo">
+      <div className="tic-tac-toe">
          <GameContextProvider>
          <CloudamiteTop />
          <div className="gamecontainer">
