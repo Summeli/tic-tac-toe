@@ -1,6 +1,6 @@
 import EndGameView from './EndGameView';
 import GameButton from './GameButton';
-import { P1, P2, useGameContext } from './GameContext';
+import { useGameContext } from './GameContext';
 import {isSpotOpen} from './GameUtil'
 
 
