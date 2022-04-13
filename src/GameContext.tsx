@@ -16,7 +16,7 @@ type GameContext = {
     round: number;
     winner: string;
     gameOver: boolean;
-    nextMove: (player: string, col: number, row: number) => void;
+    nextMove: (col: number, row: number) => void;
     resetGame: () => void;
   };
   
@@ -46,7 +46,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     const [winner, setWinner] = useState("");
     const [gameOver, setGameOver] = useState(false);
 
-    const nextMove = (pplayer: string, row: number, col: number) => {
+    const nextMove = (row: number, col: number) => {
         board[row][col] = turn;
         setBoard(board);        
         if(isWinning(board,P1)){
@@ -65,7 +65,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     React.useEffect(() => {
       if(turn === P1 && !gameOver){
         let move: gameMove = getNextMove(board,getPossibleMoves(board), round);
-        nextMove(P1,move.row,move.col);
+        nextMove(move.row,move.col);
       }
     }, [turn,gameOver]);
 
