@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { getNextMove } from "./ai";
-import { checkForWinner, gameMove, getNextTurn, getPossibleMoves } from "./GameUtil";
+import { gameMove, getNextTurn, getPossibleMoves, isWinning } from "./GameUtil";
 
 export type GameState = {
     board: string[][];
@@ -49,8 +49,8 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     const nextMove = (pplayer: string, row: number, col: number) => {
         board[row][col] = turn;
         setBoard(board);        
-        if(checkForWinner(board) == 1){
-          setWinner(turn);
+        if(isWinning(board,P1)){
+          setWinner(P1);
           setGameOver(true);
         }else if( round < 8){
           setRound(round +1);
@@ -67,7 +67,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
         let move: gameMove = getNextMove(board,getPossibleMoves(board), round);
         nextMove(P1,move.row,move.col);
       }
-    }, [turn]);
+    }, [turn,gameOver]);
 
     const resetGame = () => {
       setBoard(grid);
