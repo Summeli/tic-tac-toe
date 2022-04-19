@@ -20,6 +20,12 @@ type GameContext = {
     resetGame: () => void;
   };
 
+type NextMoveRequest = {
+  playerName: string;
+  board: string [][];
+};
+
+const PNAME = "summeli";
   // isable warning for redecalaration
 // eslint-disable-next-line 
 const GameContext = React.createContext<Partial<GameContext>>({});
@@ -59,9 +65,11 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
 
     React.useEffect(() => {
       if(turn === P1 && !gameOver){
-        let body: string = JSON.stringify(board);
+        let request : NextMoveRequest = {playerName: PNAME, board: board};
+        let body: string = JSON.stringify(request);
         axios.post('http://127.0.0.1:8787/api/nextmove', body)
           .then(response => {
+            
             const move = response.data;
             nextMove(move.row,move.col,P1);
           });
