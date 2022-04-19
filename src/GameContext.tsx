@@ -60,17 +60,13 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
 
     React.useEffect(() => {
       if(turn === P1 && !gameOver){
-        let move: gameMove = getNextMove(board,getPossibleMoves(board), round);
         let body: string = JSON.stringify(board);
         axios.post('http://127.0.0.1:8787/api/nextmove', body)
           .then(response => {
-           // const move = response.data;
-            console.log(response.data);
+            const move = response.data;
+            console.log(move);
             nextMove(move.row,move.col,P1);
           });
-
-
-        //nextMove(move.row,move.col);
       }
     }, [turn,gameOver]);
 
