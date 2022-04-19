@@ -22,10 +22,14 @@ type GameContext = {
 
 type NextMoveRequest = {
   playerName: string;
+  type: string;
   board: string [][];
 };
 
 const PNAME = "summeli";
+const URL = "http://127.0.0.1:8787/api/nextmove"
+
+//const URL = "https://tic-tac-toe-ai.cloudamite.workers.dev/api/nextmove"
   // isable warning for redecalaration
 // eslint-disable-next-line 
 const GameContext = React.createContext<Partial<GameContext>>({});
@@ -58,16 +62,21 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
           setTurn(getNextTurn(turn));
         } else {
           //P2 wins with tie
-          setWinner(P2);
-          setGameOver(true);
+          let request : NextMoveRequest = {playerName: PNAME, type: "human",board: board};
+          let body: string = JSON.stringify(request);
+          axios.post(URL, body)
+          .then(response => {
+             setWinner(P2);
+            setGameOver(true);
+          });
         }
     };
 
     React.useEffect(() => {
       if(turn === P1 && !gameOver){
-        let request : NextMoveRequest = {playerName: PNAME, board: board};
+        let request : NextMoveRequest = {playerName: PNAME, type: "human", board: board};
         let body: string = JSON.stringify(request);
-        axios.post('http://127.0.0.1:8787/api/nextmove', body)
+        axios.post(URL, body)
           .then(response => {
             
             const move = response.data;
