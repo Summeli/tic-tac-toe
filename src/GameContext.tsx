@@ -1,6 +1,7 @@
+import axios from "axios";
 import React, { useContext, useState } from "react";
 import { getNextMove } from "./ai";
-import { gameMove, getNextTurn, getPossibleMoves, isWinning } from "./GameUtil";
+import { gameMove, getNextTurn, getPossibleMoves, isWinning, P1, P2 } from "./GameUtil";
 
 export type GameState = {
     board: string[][];
@@ -16,14 +17,9 @@ type GameContext = {
     round: number;
     winner: string;
     gameOver: boolean;
-    nextMove: (col: number, row: number) => void;
+    nextMove: (col: number, row: number, player: string) => void;
     resetGame: () => void;
   };
-  
-
-export const P1 = "X";
-export const P2 = "O";
-
 
   // isable warning for redecalaration
 // eslint-disable-next-line 
@@ -46,8 +42,8 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     const [winner, setWinner] = useState("");
     const [gameOver, setGameOver] = useState(false);
 
-    const nextMove = (row: number, col: number) => {
-        board[row][col] = turn;
+    const nextMove = (row: number, col: number, player: string) => {
+        board[row][col] = player;
         setBoard(board);        
         if(isWinning(board,P1)){
           setWinner(P1);
@@ -65,7 +61,16 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     React.useEffect(() => {
       if(turn === P1 && !gameOver){
         let move: gameMove = getNextMove(board,getPossibleMoves(board), round);
-        nextMove(move.row,move.col);
+        let body: string = JSON.stringify(board);
+        axios.post('http://127.0.0.1:8787/api/nextmove', body)
+          .then(response => {
+           // const move = response.data;
+            console.log(response.data);
+            nextMove(move.row,move.col,P1);
+          });
+
+
+        //nextMove(move.row,move.col);
       }
     }, [turn,gameOver]);
 

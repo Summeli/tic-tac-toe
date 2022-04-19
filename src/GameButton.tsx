@@ -1,5 +1,5 @@
 import React from 'react';
-import { P1, P2 } from './GameContext';
+import { P1, P2 } from './GameUtil';
 
 interface Props {
     text: string;

@@ -1,5 +1,6 @@
 import Particles from "react-tsparticles";
-import { P2, useGameContext } from "./GameContext";
+import { useGameContext } from "./GameContext";
+import { P2 } from "./GameUtil";
 
 const VictoryParty: React.FunctionComponent = () => {
     const {winner, gameOver} = useGameContext();

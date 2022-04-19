@@ -1,5 +1,6 @@
 import React  from 'react';
-import { P1, P2, useGameContext } from './GameContext';
+import { useGameContext } from './GameContext';
+import { P1, P2 } from './GameUtil';
 
 const EndGameView: React.FunctionComponent = () => {
     const {winner, gameOver} = useGameContext();

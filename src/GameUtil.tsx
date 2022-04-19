@@ -1,7 +1,5 @@
-import { moveSyntheticComments } from "typescript";
-import GameBoard from "./GameBoard";
-import { P1,P2 } from "./GameContext";
-
+export const P1 = "X";
+export const P2 = "O";
 
 export type gameMove = {
     row: number,

@@ -1,7 +1,7 @@
 import EndGameView from './EndGameView';
 import GameButton from './GameButton';
 import { useGameContext } from './GameContext';
-import {isSpotOpen} from './GameUtil'
+import {isSpotOpen, P2} from './GameUtil'
 
 
 const GameBoard: React.FunctionComponent = () => {
@@ -12,7 +12,7 @@ const GameBoard: React.FunctionComponent = () => {
 
   const handleClick = (row: number, col: number) => {
     if(gameOver !== true){
-      nextMove(row,col);
+      nextMove(row,col,P2);
     }
   };
 
