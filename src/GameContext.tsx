@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
-import { getNextMove } from "./ai";
 import { gameMove, getNextTurn, getPossibleMoves, isWinning, P1, P2 } from "./GameUtil";
 
 export type GameState = {
@@ -64,7 +63,6 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
         axios.post('http://127.0.0.1:8787/api/nextmove', body)
           .then(response => {
             const move = response.data;
-            console.log(move);
             nextMove(move.row,move.col,P1);
           });
       }
