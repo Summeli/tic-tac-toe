@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
-import { gameMove, getNextTurn, getPossibleMoves, isWinning, P1, P2 } from "./GameUtil";
+import { getNextTurn, isWinning, P1, P2 } from "./GameUtil";
 
 export type GameState = {
     board: string[][];
