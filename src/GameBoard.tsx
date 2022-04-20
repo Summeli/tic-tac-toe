@@ -6,10 +6,13 @@ import {isSpotOpen, P2} from './GameUtil'
 
 const GameBoard: React.FunctionComponent = () => {
 
-  const {board, nextMove, gameOver, resetGame} = useGameContext();
-  
+  const {board,turn, nextMove, gameOver, resetGame} = useGameContext();
+  let gameStarted: boolean = false; 
   if (!board || !nextMove || !resetGame) return null;
-
+ 
+  if(turn){
+    gameStarted = true;
+}
   const handleClick = (row: number, col: number) => {
     if(gameOver !== true){
       nextMove(row,col,P2);
@@ -46,11 +49,13 @@ const GameBoard: React.FunctionComponent = () => {
         {renderGameButton(2,1)}
         {renderGameButton(2,2)}
       </div>
-
-      <div className="extrabuttoncontainer">
+      {
+       gameStarted ? 
+      (<div className="extrabuttoncontainer">
         <button onClick = {resetGame} className= "newGameButton">new Game</button>
-      </div>
-
+      </div>) :
+      <div></div>
+      }
       <EndGameView />
 
 
