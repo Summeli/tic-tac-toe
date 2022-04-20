@@ -5,7 +5,7 @@ import { P1, P2 } from './GameUtil';
 const PlayerName: React.FunctionComponent = () => {
 
     const [name, setName] = useState("");
-    const {startGame, playerName, turn} = useGameContext();
+    const {startGame, turn} = useGameContext();
 
     let gameStarted: boolean = false;
     if(!startGame)
@@ -25,7 +25,6 @@ const PlayerName: React.FunctionComponent = () => {
         e.preventDefault();
         const newValue = e.currentTarget.value;
         setName(newValue);
-        console.log(newValue);
     };
 
     const add = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,7 +37,7 @@ const PlayerName: React.FunctionComponent = () => {
             <div className='pname'>PlayerName: {name}</div>
         ):
            (<div className='pname'>
-              <input type='text' name='pname' onChange={handleChange} onKeyDown={handleKeyboardEvent} defaultValue="Player Name" value={name}/>
+              <input type='text' name='pname' onChange={handleChange} onKeyDown={handleKeyboardEvent} value={name}/>
               <button value="OK" onClick={add}>OK</button>
            </div>) 
         }

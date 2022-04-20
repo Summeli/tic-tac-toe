@@ -55,7 +55,6 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
     const [gameOver, setGameOver] = useState(false);
 
     const startGame = (playerName: string) => {
-      console.log("starting game", playerName);
       setPlayerName(playerName);
       resetGame();
     };
