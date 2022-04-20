@@ -4,6 +4,7 @@ import CloudamiteTop from './CloudamiteTop';
 import CloudamiteFooter from './CloudamiteFooter';
 import VictoryParty from './VictoryParty'
 import { GameContextProvider } from './GameContext';
+import PlayerName from './PlayerName';
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
          <GameContextProvider>
          <CloudamiteTop />
          <div className="gamecontainer">
+            <PlayerName />
             <GameBoard />
          </div>
          <CloudamiteFooter />
