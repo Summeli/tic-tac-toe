@@ -1,5 +1,7 @@
 # Tic-Tac-Toe with react
 
+See also the AI-challenge project at: <TODO>
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -31,7 +33,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### publish 
+### Publish 
 Github GH-pages are used for publishing htis
 
 ## Learn More
