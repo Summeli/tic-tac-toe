@@ -1,6 +1,5 @@
-import React, { useState, KeyboardEvent, KeyboardEventHandler }  from 'react';
+import React, { useState, KeyboardEvent }  from 'react';
 import { useGameContext } from './GameContext';
-import { P1, P2 } from './GameUtil';
 
 const PlayerName: React.FunctionComponent = () => {
 

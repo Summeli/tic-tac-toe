@@ -7,7 +7,7 @@ export type gameMove = {
 };
 
 export function isSpotOpen(board: string[][],row: number, col: number ): boolean{
-    return board[row][col] != P1 && board[row][col] != P2;
+    return board[row][col] !== P1 && board[row][col] !== P2;
   }
 
   export function isWinning(board: string[][], player: string) : boolean {
