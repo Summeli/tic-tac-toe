@@ -32,13 +32,14 @@ const PlayerName: React.FunctionComponent = () => {
     };
 
     return(
-        <div className='form-wrapper'>
+        <div className='name-form'>
         {gameStarted ? (
-            <div className='pname'>PlayerName: {name}</div>
+            <div className='pname'>Player: {name}</div>
         ):
            (<div className='pname'>
-              <input type='text' name='pname' onChange={handleChange} onKeyDown={handleKeyboardEvent} value={name}/>
-              <button value="OK" onClick={add}>OK</button>
+               <p>Enter Player name to start the game:</p>
+              <input type='text' className='playerNameInput' name='pname' onChange={handleChange} onKeyDown={handleKeyboardEvent} value={name}/>
+              <button className='nameOKButton' value="OK" onClick={add}>OK</button>
            </div>) 
         }
         </div>
