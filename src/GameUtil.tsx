@@ -26,7 +26,7 @@ export function isSpotOpen(board: string[][],row: number, col: number ): boolean
     {
         return true;
     }
-    else if(board[2][0] === player && board [2][1] === player &&  board[2][2] === player)
+    else if(board[2][0] === player && board[2][1] === player && board[2][2] === player)
     {
         return true;
     }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { getNextTurn, isWinning, P1, P2 } from "./GameUtil";
 
 export type GameState = {
@@ -59,7 +59,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
       resetGame();
     };
 
-    const nextMove = (row: number, col: number, player: string) => {
+    const nextMove = useCallback((row: number, col: number, player : string) => {
         board[row][col] = player;
         setBoard(board);        
         if(isWinning(board,P1)){
@@ -78,7 +78,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
             setGameOver(true);
           });
         }
-    };
+    },[board,playerName,round,turn]);
 
     React.useEffect(() => {
       if(turn === P1 && !gameOver){
@@ -91,7 +91,7 @@ export const GameContextProvider: React.FunctionComponent<GameContextProps> = ({
             nextMove(move.row,move.col,P1);
           });
       }
-    }, [turn,gameOver]);
+    }, [turn,gameOver,board,playerName,nextMove]);
 
     const resetGame = () => {
       setBoard(grid);
