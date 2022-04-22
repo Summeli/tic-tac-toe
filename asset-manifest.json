@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.361f2b79.css",
-    "main.js": "/static/js/main.c314a50c.js",
+    "main.js": "/static/js/main.3660b803.js",
     "static/js/787.393238a3.chunk.js": "/static/js/787.393238a3.chunk.js",
     "static/media/clouda-logo-left.png": "/static/media/clouda-logo-left.db3a6646e5fc9a2ddb33.png",
     "static/media/slogan.png": "/static/media/slogan.b8e4e56d8c54df56636e.png",
     "index.html": "/index.html",
     "main.361f2b79.css.map": "/static/css/main.361f2b79.css.map",
-    "main.c314a50c.js.map": "/static/js/main.c314a50c.js.map",
+    "main.3660b803.js.map": "/static/js/main.3660b803.js.map",
     "787.393238a3.chunk.js.map": "/static/js/787.393238a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.361f2b79.css",
-    "static/js/main.c314a50c.js"
+    "static/js/main.3660b803.js"
   ]
 }
