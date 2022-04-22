@@ -39,7 +39,7 @@ const PlayerName: React.FunctionComponent = () => {
     };
 
     const add = (e: React.MouseEvent<HTMLButtonElement>) => {
-        if(name.length <= PLAYER_NAME_MIN || name.length >= PLAYER_NAME_MAX){
+        if(name.length < PLAYER_NAME_MIN || name.length >= PLAYER_NAME_MAX){
             setShowError(true);
         }else {
         startGame(name);
