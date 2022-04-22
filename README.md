@@ -1,6 +1,6 @@
 # Tic-Tac-Toe with react
 
-See also the AI-challenge project at: <TODO>
+See also the AI-challenge project at: [Tic-Tac-Toe-AI-Challenge](https://github.com/Cloudamite-Academy/tic-tac-toe-ai-challenge) 
 
 ## Available Scripts
 
